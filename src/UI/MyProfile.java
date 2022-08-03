@@ -49,7 +49,7 @@ public class MyProfile  {
             MyProfileController.Followernumber=Integer.toString(user.getNumberOfFollowers());
             MyProfileController.Postnumber=Integer.toString(user.getNumberOfPost());
             MyProfileController.Followingnumber=Integer.toString(user.getNumberOfFollowings());
-            myProfileController.editMyprofile();
+
 
 
 

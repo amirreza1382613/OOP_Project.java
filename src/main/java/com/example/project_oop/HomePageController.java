@@ -24,24 +24,7 @@ public class HomePageController {
     @FXML
     Button HomePageMyProfileButton;
 //////////
-    @FXML
-    Label MyProfileUsername;
-    @FXML
-    Label MyProfileFollowers;
-    @FXML
-    Label MyProfieFollowing;
-    @FXML
-    Label MyProfilePosts;
-    @FXML
-    Button MyProfileBackButton;
-    @FXML
-    Button MyProfilePostsButton;
-    @FXML
-    Button MyProfileFollowersButton;
-    @FXML
-    Button MyProfileFollowingButton;
-    @FXML
-    Button MyProfileSendMessageButton;
+
     ///////////////
     public void pushexit(){
         System.out.println("exit");
@@ -54,10 +37,14 @@ public class HomePageController {
     }
     public void pushmyprofile() throws IOException {
 
-        MyProfilePosts.setText(MyProfileController.Postnumber);
-        MyProfileFollowers.setText(MyProfileController.Followernumber);
-        MyProfieFollowing.setText(MyProfileController.Followingnumber);
-        MyProfileUsername.setText(MyProfileController.Username);
+       // System.out.println("here"+MyProfileController.Postnumber+"here");
+       // MyProfilePostsLabel.setText(MyProfileController.Postnumber);
+       // System.out.println(MyProfilePostsLabel.getText());
+
+
+        //MyProfileFollowersLabel.setText(MyProfileController.Followernumber);
+        //MyProfieFollowingLabel.setText(MyProfileController.Followingnumber);
+        //MyProfileUsernameLAbel.setText(MyProfileController.Username);
 
         Parent pane= FXMLLoader.load(getClass().getResource("MyProfile-view.fxml"));
         HelloApplication.stg.getScene().setRoot(pane);
