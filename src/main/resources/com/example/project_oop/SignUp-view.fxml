@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.SignUpController">
+   <children>
+      <TextField fx:id="UsernameTextField" layoutX="423.0" layoutY="64.0" promptText="username" />
+      <PasswordField fx:id="PasswordPasswordField" layoutX="425.0" layoutY="136.0" promptText="password" />
+      <PasswordField fx:id="RepeatPasswordPasswordField" layoutX="425.0" layoutY="209.0" promptText="repeat password" />
+      <Label layoutX="95.0" layoutY="64.0" text="please enter your username">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="209.0" text="please write your password again">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="136.0" text="please enter your password">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="363.0" text="In what city were you born? :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="287.0" text="here is three security questions will help you to recover your password later">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="428.0" text="What is the name of your favorite pet? :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="490.0" text="What is the name of your first school? : ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SecurityQuestion1TextField" layoutX="425.0" layoutY="363.0" />
+      <TextField fx:id="SecurityQuestion3TextField" layoutX="425.0" layoutY="490.0" />
+      <TextField fx:id="SecurityQuestion2TextField" layoutX="425.0" layoutY="428.0" />
+      <Label fx:id="LabelAnswerSecurityBug" layoutX="486.0" layoutY="515.0" text=" " textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Button fx:id="SignUp2Button" layoutX="635.0" layoutY="542.0" mnemonicParsing="false" onAction="#pushsignup" text="SignUp">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="LabelPasswordBug" layoutX="358.0" layoutY="241.0" text=" " textFill="RED" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Button fx:id="SignUpReturnBackButton" layoutX="754.0" layoutY="542.0" mnemonicParsing="false" onAction="#pushreturnbackbutton" text="Return Back">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

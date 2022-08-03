@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.SignInController">
+   <children>
+      <Label layoutX="146.0" layoutY="255.0" text="Please enter tour password:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="135.0" text="Please enter your username:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="SignInSignInButton" layoutX="341.0" layoutY="414.0" mnemonicParsing="false" onAction="#pushsigninbutton" text="SignIn">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="SignInPasswordPasswordField" layoutX="591.0" layoutY="255.0" promptText="password" />
+      <TextField fx:id="SignInUsernameTextField" layoutX="591.0" layoutY="135.0" promptText="username" />
+      <Button fx:id="SignInReturnBackButton" layoutX="528.0" layoutY="414.0" mnemonicParsing="false" onAction="#pushreturnbackbutton" text="ReturnBack">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="SignInBugLabel" layoutX="652.0" layoutY="333.0" text=" " textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

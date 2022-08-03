@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.HelloController">
+   <children>
+      <Button fx:id="SignUpButton" layoutX="200.0" layoutY="226.0" mnemonicParsing="false" onAction="#pushSignUp" text="SignUp">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="SignInButton" layoutX="700" layoutY="226.0" mnemonicParsing="false" onAction="#pushSignIn" text="SignIn">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="ExitButton" layoutX="450.0" layoutY="226.0" mnemonicParsing="false" onAction="#pushexit" text="Exit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="367.0" layoutY="70.0" text="Wellcome to the program">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="414.0" layoutY="344.0" text="Developed by:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="158.0" layoutY="434.0" text="Amirreza Dehghani">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="434.0" text="Mohammad Javad Mehmandoost">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
