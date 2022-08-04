@@ -3,6 +3,8 @@ package DataBase;
 import Exceptions.DataBaseExceptions.UsernameNotExistException;
 import Exceptions.DataBaseExceptions.WrongPasswordException;
 import BusinessLogic.User.User;
+import com.example.project_oop.SearchController;
+import com.example.project_oop.SearchController;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,16 +17,22 @@ public class ReadUser {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Users WHERE UserName = '" +
                 userName +"';");
         // check if user exists
+
         if(!resultSet.next()) {
             resultSet.close();
             statement.close();
-            throw new UsernameNotExistException("User does not exists");
+            SearchController.errorlabel="User does not exists";
+
+            return null;
+           // throw new UsernameNotExistException("User does not exists");
         }
         if(password != null && !resultSet.getString("Password").equals(password)){
             resultSet.close();
             statement.close();
+
             throw new WrongPasswordException("password is not correct");
         }
+        SearchController.flag=true;
         User user = new User(resultSet.getString("UserName"), resultSet.getString("Password"),
                 resultSet.getInt("NumberOfFollowers"), resultSet.getInt("NumberOfFollowing"),
                 resultSet.getInt("NumberOfPosts"), resultSet.getInt("LastPostId"));

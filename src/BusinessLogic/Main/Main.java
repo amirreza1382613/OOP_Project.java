@@ -23,6 +23,8 @@ interface Response {
 }
 
 public class Main {
+@getter
+@setter
 
     private static Response response;
     private static User user;
@@ -72,10 +74,10 @@ public class Main {
                 event = response.perform();
 
                 switch (event.user_request) {
-                   // case START_PAGE -> startPage(event.data[0]);
-                //    case SIGN_UP -> signUp();
-                 //   case SIGN_IN -> signIn();
-                  //  case HOME_PAGE -> homePage();
+                  //  case START_PAGE -> startPage(event.data[0]);
+                  //  case SIGN_UP -> signUp();
+                   // case SIGN_IN -> signIn();
+                 //   case HOME_PAGE -> homePage();
                     case SEARCH -> search();
                     case PROFILE -> profile();
                     case FOLLOW_LIST -> response = () -> UI.Profile.profile(searched_user, DataBase.Follow.doesFollow(
@@ -267,6 +269,8 @@ public class Main {
         if(user_option == 0) {
             response = () -> UI.Search.search(Search.SearchSituation.Normal, null);
         }
+
+        //ToDo:Follow or un Follow the second User
         else if(user_option == 1) {
             try {
                 if(DataBase.Follow.doesFollow(user.getUsername(), searched_user.getUsername())) {
@@ -280,8 +284,11 @@ public class Main {
                             user.getNumberOfFollowings() + 1, searched_user.getNumberOfFollowers() + 1);
                     user.addFollowing();
                     searched_user.addFollower();
+
                 }
-                response = () -> UI.Profile.profile(searched_user,
+
+                response = () ->
+                        UI.Profile.profile(searched_user,
                         DataBase.Follow.doesFollow(user.getUsername(), searched_user.getUsername()),
                         Profile.ProfileSituation.NORMAL);
             } catch (SQLException e) {

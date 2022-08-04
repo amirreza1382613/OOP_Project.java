@@ -50,7 +50,9 @@ public class HomePageController {
         HelloApplication.stg.getScene().setRoot(pane);
 
     }
-    public void pushsearch(){
+    public void pushsearch() throws IOException {
+        Parent pane= FXMLLoader.load(getClass().getResource("Search-view.fxml"));
+        HelloApplication.stg.getScene().setRoot(pane);
 
     }
 

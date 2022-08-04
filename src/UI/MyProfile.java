@@ -4,6 +4,7 @@ import BusinessLogic.Event.Event;
 import BusinessLogic.Main.Main;
 import BusinessLogic.Post.Post;
 import BusinessLogic.User.User;
+import com.example.project_oop.MyFollowersController;
 import com.example.project_oop.MyProfileController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,7 +34,6 @@ public class MyProfile  {
     Button MyProfileSendMessageButton;
 
     public static Event myProfile(User user, Profile.ProfileSituation situation) {
-        MyProfileController myProfileController=new MyProfileController();
         int user_option = 0;
         boolean invalid_option = false;
         do {
@@ -92,8 +92,10 @@ public class MyProfile  {
             UI.clearScreen();
             System.out.println(UI.ANSI_BLUE + "\n--------------------Followers--------------------\n" + UI.ANSI_RESET);
 
-            for (int i = 0; i < followers.size(); ++i)
+            for (int i = 0; i < followers.size(); ++i){
                 System.out.println((i + 1) + " - " + followers.get(i));
+                MyFollowersController.MyFollowers+=Integer.toString(i+1)+followers.get(i)+"\n";
+            }
 
             if(invalid_option)
                 System.out.println(UI.ANSI_RED + "invalid option given" + UI.ANSI_RESET);
@@ -104,7 +106,7 @@ public class MyProfile  {
             System.out.print("Enter your option : ");
 
             try {
-                user_option = Integer.parseInt(UI.scanner.nextLine());
+              //  user_option = Integer.parseInt(UI.scanner.nextLine());
                 invalid_option = user_option < 0 || user_option > followers.size();
             } catch (NumberFormatException ex) {
                 invalid_option = true;
