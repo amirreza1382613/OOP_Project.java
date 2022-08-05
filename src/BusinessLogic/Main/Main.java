@@ -8,13 +8,16 @@ import BusinessLogic.User.User;
 import DataBase.ReadUser;
 import Exceptions.LogicException.*;
 import Exceptions.DataBaseExceptions.*;
-import UI.SignUp;
 import UI.MyProfile;
 import UI.Profile;
 import UI.Search;
 import com.example.project_oop.HomePageController;
 import com.example.project_oop.SignInController;
 import com.example.project_oop.SignUpController;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.SneakyThrows;
+
 
 import java.sql.SQLException;
 
@@ -22,14 +25,18 @@ interface Response {
     Event perform() throws SQLException;
 }
 
+@Getter
+@Setter
+
 public class Main {
-@getter
-@setter
+
+
+
 
     private static Response response;
-    private static User user;
+    private  static @Getter @Setter User user;
     private static Event event;
-    private static User searched_user;
+    private static @Getter @Setter User searched_user;
     private static boolean my_post; // false means other users post or comment
     private static String chat_name; // save current chat name
 
@@ -79,12 +86,13 @@ public class Main {
                    // case SIGN_IN -> signIn();
                  //   case HOME_PAGE -> homePage();
                     case SEARCH -> search();
-                    case PROFILE -> profile();
-                    case FOLLOW_LIST -> response = () -> UI.Profile.profile(searched_user, DataBase.Follow.doesFollow(
+                    //case PROFILE -> profile();
+                    case FOLLOW_LIST -> //response = () ->
+                            UI.Profile.profile(searched_user, DataBase.Follow.doesFollow(
                             user.getUsername(), searched_user.getUsername()), Profile.ProfileSituation.NORMAL);
                     case MY_PROFILE -> myProfile();
-                    case MY_FOLLOWERS_LIST -> myFollowersList();
-                    case MY_FOLLOWINGS_LIST -> myFollowingsList();
+                 //   case MY_FOLLOWERS_LIST -> myFollowersList();
+                   // case MY_FOLLOWINGS_LIST -> myFollowingsList();
                     case NEW_POST -> newPost();
                     case POSTS -> posts();
                     case POST, COMMENT -> post();
@@ -253,7 +261,8 @@ public class Main {
             /// null for password means readUser() will not check if password matches or not
             User other_user = ReadUser.readUser(username, null);
 
-            response = () -> Profile.profile(other_user, DataBase.Follow.doesFollow(
+           // response = () ->
+                    Profile.profile(other_user, DataBase.Follow.doesFollow(
                     user.getUsername(), other_user.getUsername()), Profile.ProfileSituation.NORMAL);
             searched_user = other_user;
 
@@ -264,8 +273,8 @@ public class Main {
         }
     }
 
-    private static void profile() {
-        int user_option = Integer.parseInt(event.data[0]);
+    public static void profile(int user_option) throws SQLException {
+        //int user_option = Integer.parseInt(event.data[0]);
         if(user_option == 0) {
             response = () -> UI.Search.search(Search.SearchSituation.Normal, null);
         }
@@ -287,12 +296,13 @@ public class Main {
 
                 }
 
-                response = () ->
+               // response = () ->
                         UI.Profile.profile(searched_user,
                         DataBase.Follow.doesFollow(user.getUsername(), searched_user.getUsername()),
                         Profile.ProfileSituation.NORMAL);
             } catch (SQLException e) {
-                response = () -> UI.Profile.profile(searched_user,
+               // response = () ->
+                        UI.Profile.profile(searched_user,
                         DataBase.Follow.doesFollow(user.getUsername(), searched_user.getUsername()),
                         Profile.ProfileSituation.DATABASE_EXCEPTION);
                 e.printStackTrace();
@@ -327,6 +337,7 @@ public class Main {
         /// TODO : handle sql exception in get follow list properly
 
         else if(user_option == 1) {
+
             response = () -> UI.MyProfile.myPosts(DataBase.Post.postsList(user.getUsername()));
         }
         else if(user_option == 2) {
@@ -343,9 +354,10 @@ public class Main {
         }
     }
 
-    private static void myFollowersList() {
-        String user_choice = event.data[0];
+    public static void myFollowersList(String user_choice) {
+       // String user_choice = event.data[0];
         if(user_choice.equals("0")) {
+            System.out.println("hiii");
             response = () -> UI.MyProfile.myProfile(user, Profile.ProfileSituation.NORMAL);
         }
         else {
@@ -367,8 +379,8 @@ public class Main {
         }
     }
 
-    private static void myFollowingsList() {
-        String user_choice = event.data[0];
+    public static void myFollowingsList(String user_choice) {
+       // String user_choice = event.data[0];
         if(user_choice.equals("0")) {
             response = () -> UI.MyProfile.myProfile(user, Profile.ProfileSituation.NORMAL);
         }
@@ -407,9 +419,10 @@ public class Main {
 
     }
 
-    private static void posts() {
+    private static void posts() throws SQLException {
         if(event.data[0].equals("0")) {
-            response = () -> UI.Profile.profile(searched_user, DataBase.Follow.doesFollow(
+        //    response = () ->
+                    UI.Profile.profile(searched_user, DataBase.Follow.doesFollow(
                     user.getUsername(), searched_user.getUsername()), Profile.ProfileSituation.NORMAL);
         }
         else {

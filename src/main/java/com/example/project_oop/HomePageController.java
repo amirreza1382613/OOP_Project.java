@@ -4,14 +4,17 @@ import BusinessLogic.Main.Main;
 import BusinessLogic.User.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.Buffer;
+import java.util.ResourceBundle;
 
-public class HomePageController {
+public class HomePageController  {
 
     public static User user;
     /////
@@ -55,5 +58,6 @@ public class HomePageController {
         HelloApplication.stg.getScene().setRoot(pane);
 
     }
+
 
 }

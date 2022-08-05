@@ -14,7 +14,7 @@ public class Profile {
         NORMAL, DATABASE_EXCEPTION
     }
 
-    public static Event profile(User user, boolean doesFollow, ProfileSituation situation) {
+    public static void profile(User user, boolean doesFollow, ProfileSituation situation) {
         int user_option = 0;
         boolean invalid_option = false;
         do {
@@ -44,7 +44,7 @@ public class Profile {
             System.out.print("\nenter your option : ");
 
             try {
-                user_option = Integer.parseInt(UI.scanner.nextLine());
+             //   user_option = Integer.parseInt(UI.scanner.nextLine());
                 invalid_option = user_option < 0 || user_option > 4;
             } catch (NumberFormatException ex) {
                 invalid_option = true;
@@ -52,7 +52,7 @@ public class Profile {
 
         } while(invalid_option);
 
-        return new Event(Main.UserRequest.PROFILE, Integer.toString(user_option));
+       // return new Event(Main.UserRequest.PROFILE, Integer.toString(user_option));
     }
 
 

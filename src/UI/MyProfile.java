@@ -5,6 +5,7 @@ import BusinessLogic.Main.Main;
 import BusinessLogic.Post.Post;
 import BusinessLogic.User.User;
 import com.example.project_oop.MyFollowersController;
+import com.example.project_oop.MyFollowingsController;
 import com.example.project_oop.MyProfileController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,6 +46,7 @@ public class MyProfile  {
             System.out.println("   posts : " + user.getNumberOfPost() + "   followers : " +
                     user.getNumberOfFollowers() + "  followings : " + user.getNumberOfFollowings());
             System.out.println(UI.ANSI_RESET);
+
             MyProfileController.Username=user.getUsername();
             MyProfileController.Followernumber=Integer.toString(user.getNumberOfFollowers());
             MyProfileController.Postnumber=Integer.toString(user.getNumberOfPost());
@@ -94,7 +96,7 @@ public class MyProfile  {
 
             for (int i = 0; i < followers.size(); ++i){
                 System.out.println((i + 1) + " - " + followers.get(i));
-                MyFollowersController.MyFollowers+=Integer.toString(i+1)+followers.get(i)+"\n";
+                MyFollowersController.MyFollowers+=Integer.toString(i+1)+" - "+followers.get(i)+"\n";
             }
 
             if(invalid_option)
@@ -125,8 +127,10 @@ public class MyProfile  {
             UI.clearScreen();
             System.out.println(UI.ANSI_BLUE + "\n--------------------Followings--------------------\n" + UI.ANSI_RESET);
 
-            for (int i = 0; i < followings.size(); ++i)
+            for (int i = 0; i < followings.size(); ++i){
                 System.out.println((i + 1) + " - " + followings.get(i));
+                MyFollowingsController.MyFollowings+=Integer.toString(i+1)+" - "+followings.get(i)+'\n';
+            }
 
             if(invalid_option)
                 System.out.println(UI.ANSI_RED + "invalid option given" + UI.ANSI_RESET);
@@ -137,7 +141,7 @@ public class MyProfile  {
             System.out.print("Enter your option : ");
 
             try {
-                user_option = Integer.parseInt(UI.scanner.nextLine());
+                //user_option = Integer.parseInt(UI.scanner.nextLine());
                 invalid_option = user_option < 0 || user_option > followings.size();
             } catch (NumberFormatException ex) {
                 invalid_option = true;
