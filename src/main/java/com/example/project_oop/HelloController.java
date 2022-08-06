@@ -18,9 +18,11 @@ public class HelloController {
    Button SignInButton;
    @FXML
    Button SignUpButton;
+   @FXML
+   Button ChoseThemeButton;
 
    public void pushexit(ActionEvent actionEvent){
-      System.out.println("exit");
+
      Main.startPage("3");
    }
 
@@ -30,7 +32,7 @@ public class HelloController {
       Parent pane= FXMLLoader.load(getClass().getResource("SignIn-view.fxml"));
       HelloApplication.stg.getScene().setRoot(pane);
 
-      System.out.println("in");
+
       Main.startPage("2");
    }
 
@@ -39,8 +41,11 @@ public class HelloController {
       Parent pane= FXMLLoader.load(getClass().getResource("SignUp-view.fxml"));
       HelloApplication.stg.getScene().setRoot(pane);
 
-      System.out.println("up");
       Main.startPage("1");
+   }
+   public void pushchosetheme() throws IOException {
+      Parent pane= FXMLLoader.load(getClass().getResource("SignUp-view.fxml"));
+      HelloApplication.stg.getScene().setRoot(pane);
    }
 
 

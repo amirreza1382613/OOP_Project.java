@@ -30,7 +30,7 @@ interface Response {
 
 public class Main {
 
-
+    private static @Getter @Setter int theme=0;
 
 
     private static Response response;

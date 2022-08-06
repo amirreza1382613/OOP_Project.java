@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.MyFollowingsController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.MyFollowingsController">
     <children>
-        <Label layoutX="14.0" layoutY="361.0" text="Please Enter the number of your follower which you want to remove him:">
+        <Label layoutX="217.0" layoutY="35.0" text="Please Enter the number of your follower which you want to remove him:">
             <font>
                 <Font size="18.0" />
             </font>
@@ -21,18 +23,17 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="MyFollowingsRemoveButton" layoutX="623.0" layoutY="477.0" mnemonicParsing="false" onAction="#pushremove" text="Remove">
+        <Button fx:id="MyFollowingsRemoveButton" layoutX="866.0" layoutY="183.0" mnemonicParsing="false" onAction="#pushremove" text="Remove">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <TextField fx:id="MyFollowingsNumberofRemoveTextField" layoutX="704.0" layoutY="362.0" />
-        <Button fx:id="MyFollowingsBackButton" layoutX="500.0" layoutY="477.0" mnemonicParsing="false" onAction="#pushback" text="Back">
+        <TextField fx:id="MyFollowingsNumberofRemoveTextField" layoutX="836.0" layoutY="36.0" />
+        <Button fx:id="MyFollowingsBackButton" layoutX="880.0" layoutY="280.0" mnemonicParsing="false" onAction="#pushback" text="Back">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <TextArea fx:id="MyFollowingsFollowersTextArea" layoutX="148.0" layoutY="106.0" prefHeight="236.0" prefWidth="489.0" style="-fx-background-color: #87CEEB;" />
         <Label fx:id="MyFollowingsUsernameLabel" layoutX="106.0" layoutY="35.0" text="Label">
             <font>
                 <Font size="18.0" />
@@ -43,5 +44,10 @@
                 <Font size="14.0" />
             </font>
         </Label>
+      <Label fx:id="MyFollowingsFollowersLabel" layoutX="155.0" layoutY="92.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -4,6 +4,8 @@ import BusinessLogic.Event.Event;
 import BusinessLogic.Main.Main;
 import BusinessLogic.Post.Post;
 import BusinessLogic.User.User;
+import com.example.project_oop.SecondUserFollowerController;
+import com.example.project_oop.SecondUserFollowingController;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -68,11 +70,13 @@ public class Profile {
             System.out.println("                " + username);
             System.out.println(UI.ANSI_RESET);
 
-            for(int i = 0; i < usernames.size(); ++i)
+            for(int i = 0; i < usernames.size(); ++i) {
                 System.out.println((i + 1) + " - " + usernames.get(i));
-
+                if (followers) SecondUserFollowerController.seconduserfollowers+=Integer.toString(i+1)+" - "+usernames.get(i);
+                else SecondUserFollowingController.seconduserfollowing+=Integer.toString(i+1)+" - "+usernames.get(i);
+            }
             System.out.print("\nEnter any key to go back : ");
-            UI.scanner.nextLine();
+           // UI.scanner.nextLine();
 
             return new Event(Main.UserRequest.FOLLOW_LIST);
 

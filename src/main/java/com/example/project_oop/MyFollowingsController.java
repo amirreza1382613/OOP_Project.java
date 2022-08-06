@@ -30,7 +30,7 @@ public class MyFollowingsController implements Initializable {
     @FXML
     TextField MyFollowingsNumberofRemoveTextField;
     @FXML
-    TextArea MyFollowingsFollowersTextArea;
+    Label MyFollowingsFollowersLabel;
     public void pushback() throws IOException {
         Parent pane= FXMLLoader.load(getClass().getResource("MyProfile-view.fxml"));
         HelloApplication.stg.getScene().setRoot(pane);
@@ -61,7 +61,7 @@ public class MyFollowingsController implements Initializable {
             e.printStackTrace();
         }
         MyFollowingsUsernameLabel.setText(HomePageController.user.getUsername());
-        MyFollowingsFollowersTextArea.setText(MyFollowings);
+        MyFollowingsFollowersLabel.setText(MyFollowings);
         MyFollowingsErrorLabell.setText(RemoveError);
     }
 }

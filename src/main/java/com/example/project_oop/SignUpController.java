@@ -21,6 +21,7 @@ import Exceptions.DataBaseExceptions.*;
 import UI.MyProfile;
 import UI.Profile;
 import UI.Search;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
@@ -49,6 +50,8 @@ public class SignUpController {
     Button SignUp2Button;
     @FXML
     Button SignUpReturnBackButton;
+    @FXML
+    AnchorPane abc;
 
     public void pushsignup(ActionEvent actionEvent) throws IOException {
         labelAnswerSecurityBug="";labelPasswordBug="";
@@ -87,6 +90,7 @@ public class SignUpController {
 
     }
     public void pushreturnbackbutton() throws IOException {
+
         UsernameTextField.setText("");
         PasswordPasswordField.setText("");
         RepeatPasswordPasswordField.setText("");
