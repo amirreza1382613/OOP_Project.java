@@ -103,8 +103,8 @@ public class Main {
                     case CHATS -> chats();
                     case SEARCH_CHAT -> searchChat();
                     case MESSAGES -> messages();
-                    case NEW_MESSAGE -> newMessage();
-                    case NEW_CHAT -> newChat();
+                  //  case NEW_MESSAGE -> newMessage();
+                   // case NEW_CHAT -> newChat();
                     case SELECT_MESSAGE -> selectMessage();
                     case SELECTED_MESSAGE -> selectedMessage();
                     case REPLY_MESSAGE -> replyMessage();
@@ -593,7 +593,8 @@ public class Main {
         }
     }
 
-    private static void newMessage() {
+    public static void newMessage(String message) {
+        event.data[0]=message;
         try {
             DataBase.Chat.newMessage(event.data[0], user.getUsername(), -1, chat_name);
             response = () -> UI.Chat.messages(DataBase.Chat.getMessages(chat_name));
@@ -604,11 +605,12 @@ public class Main {
         }
     }
 
-    private static void newChat() {
-        if(event.data[0].equals("0")) {
-            response = () -> UI.Chat.chats(DataBase.Chat.chats(user.getUsername()), user.getUsername());
-        }
-        else {
+    public static void newChat(String secondusername) {
+        event.data[0]=secondusername;
+      //  if(event.data[0].equals("0")) {
+       //     response = () -> UI.Chat.chats(DataBase.Chat.chats(user.getUsername()), user.getUsername());
+    //    }
+       // else {
             try {
                 if(DataBase.Chat.isChatExists(user.getUsername() + " " + event.data[0])) {
                     response = () -> UI.Chat.messages(DataBase.Chat.getMessages
@@ -635,7 +637,7 @@ public class Main {
                 UI.UI.dataBaseException();
             }
         }
-    }
+   // }
 
     private static void selectMessage() {
         if(event.data[0].equals("0")) {

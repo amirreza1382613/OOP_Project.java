@@ -3,6 +3,7 @@ package UI;
 import BusinessLogic.Event.Event;
 import BusinessLogic.Main.Main;
 import BusinessLogic.Message.Message;
+import com.example.project_oop.MenuOfChatController;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,12 @@ public class Chat {
             System.out.println("2 - new chat\n");
 
             String[] usernames;
-
+                  MenuOfChatController.pvs.add("helllooo");
             for(int i = 0; i < chats.size(); ++i) {
                 usernames = chats.get(i).split(" ");
                 System.out.println(i + 3 + " - "
                         + ((usernames[0].equals(username)) ? usernames[1] : usernames[0]));
+                MenuOfChatController.pvs.add(Integer.toString(i+3)+ ((usernames[0].equals(username)) ? usernames[1] : usernames[0]));
             }
 
             if(invalid_option)
@@ -39,8 +41,8 @@ public class Chat {
             }
 
         } while(invalid_option);
-
-        return new Event(Main.UserRequest.CHATS, ((user_option < 3) ? Integer.toString(user_option) : chats.get(user_option - 3)));
+        return null;
+      //  return new Event(Main.UserRequest.CHATS, ((user_option < 3) ? Integer.toString(user_option) : chats.get(user_option - 3)));
     }
 
     // searched user can be null if searched_chat_not_exists is false
@@ -70,13 +72,20 @@ public class Chat {
                 if(messages.get(i).getRepliedTo() == -1) {
                     System.out.println(messages.get(i).getUsername() + " : "
                             + messages.get(i).getMessage());
+                    MenuOfChatController.pvchat.add(messages.get(i).getUsername() + " : "
+                            + messages.get(i).getMessage());
                 }
                 else {
                     try {
                         System.out.println(messages.get(i).getUsername() + " : "
                                 + messages.get(i).getMessage() +
                                 "  ( replying to : " + Main.getMessage(messages.get(i).getRepliedTo()).getMessage() + " )");
+                        MenuOfChatController.pvchat.add(messages.get(i).getUsername() + " : "
+                                + messages.get(i).getMessage() +
+                                "  ( replying to : " + Main.getMessage(messages.get(i).getRepliedTo()).getMessage() + " )");
                     } catch (NullPointerException ex) {
+                        MenuOfChatController.pvchat.add(messages.get(i).getUsername() + " : "
+                                + messages.get(i).getMessage());
                         System.out.println(messages.get(i).getUsername() + " : "
                                 + messages.get(i).getMessage());
                     }
@@ -116,14 +125,14 @@ public class Chat {
         UI.clearScreen();
         System.out.println(UI.ANSI_BLUE + "\n--------------------NewChat--------------------\n" + UI.ANSI_RESET);
 
-        if(user_not_exists)
+        if(user_not_exists) {
             System.out.println(UI.ANSI_RED + searched_username + " does not exist" + UI.ANSI_RESET);
-
+        MenuOfChatController.flagforrecerror=1;}
         System.out.println("-enter 0 to back");
         System.out.print("enter username you want to start chat with : ");
-        String username = UI.scanner.nextLine();
+        //String username = UI.scanner.nextLine();
 
-        return new Event(Main.UserRequest.NEW_CHAT, username);
+        return null;//new Event(Main.UserRequest.NEW_CHAT, username);
     }
 
     public static Event selectMessage(ArrayList<Message> messages) {
