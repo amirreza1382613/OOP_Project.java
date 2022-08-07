@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,9 @@ public class MyFollowingsController implements Initializable {
     TextField MyFollowingsNumberofRemoveTextField;
     @FXML
     Label MyFollowingsFollowersLabel;
+    @FXML
+    AnchorPane abc;
+
     public void pushback() throws IOException {
         Parent pane= FXMLLoader.load(getClass().getResource("MyProfile-view.fxml"));
         HelloApplication.stg.getScene().setRoot(pane);
@@ -54,6 +58,9 @@ public class MyFollowingsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (Main.getTheme()==0) abc.setStyle("-fx-background-color: #87CEEB");
+        else if (Main.getTheme()==1) abc.setStyle("-fx-background-color: #808080");
+        else abc.setStyle("-fx-background-color: #90EE90");
         MyFollowings="";
         try {
             MyProfile.myFollowingsList(DataBase.Follow.followingsList(Main.getUser().getUsername()));

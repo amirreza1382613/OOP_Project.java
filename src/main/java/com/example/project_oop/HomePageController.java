@@ -8,13 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.Buffer;
 import java.util.ResourceBundle;
 
-public class HomePageController  {
+public class HomePageController implements Initializable  {
 
     public static User user;
     /////
@@ -26,6 +27,9 @@ public class HomePageController  {
     Button HomePageSearchButton;
     @FXML
     Button HomePageMyProfileButton;
+    @FXML
+    AnchorPane abc;
+
 //////////
 
     ///////////////
@@ -60,4 +64,10 @@ public class HomePageController  {
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (Main.getTheme()==0) abc.setStyle("-fx-background-color: #87CEEB");
+        else if (Main.getTheme()==1) abc.setStyle("-fx-background-color: #808080");
+        else abc.setStyle("-fx-background-color: #90EE90");
+    }
 }

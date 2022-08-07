@@ -3,6 +3,7 @@ package com.example.project_oop;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,8 +25,10 @@ import UI.Search;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignUpController {
+public class SignUpController implements Initializable {
     public static boolean flag=false;
     public static String labelAnswerSecurityBug="",labelPasswordBug="";
     public static String usernametextfield,passwordpasswordfield,repeatpasswordpasswordfield,securityquestion1textfield,securityquestion2textfield,securityquestion3textfield;
@@ -104,5 +107,10 @@ public class SignUpController {
     }
 
 
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (Main.getTheme()==0) abc.setStyle("-fx-background-color: #87CEEB");
+        else if (Main.getTheme()==1) abc.setStyle("-fx-background-color: #808080");
+        else abc.setStyle("-fx-background-color: #90EE90");
+    }
 }
