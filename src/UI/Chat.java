@@ -102,7 +102,7 @@ public class Chat {
             System.out.print("enter your option : ");
 
             try {
-                user_option = Integer.parseInt(UI.scanner.nextLine());
+        //        user_option = Integer.parseInt(UI.scanner.nextLine());
                 invalid_option = user_option < 0 || user_option > 2;
             } catch (NumberFormatException ex) {
                 invalid_option = true;

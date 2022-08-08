@@ -594,9 +594,10 @@ public class Main {
     }
 
     public static void newMessage(String message) {
-        event.data[0]=message;
+       // event.data[0]=message;
         try {
-            DataBase.Chat.newMessage(event.data[0], user.getUsername(), -1, chat_name);
+            System.out.println("hw=echxljlxjljljljckkjklxklj;lzk;;k;lkl;ko;");
+            DataBase.Chat.newMessage(message, user.getUsername(), -1, chat_name);
             response = () -> UI.Chat.messages(DataBase.Chat.getMessages(chat_name));
         } catch (SQLException e) {
             /// DeBug
@@ -606,28 +607,29 @@ public class Main {
     }
 
     public static void newChat(String secondusername) {
-        event.data[0]=secondusername;
+       // event.data[0]=secondusername;
       //  if(event.data[0].equals("0")) {
        //     response = () -> UI.Chat.chats(DataBase.Chat.chats(user.getUsername()), user.getUsername());
     //    }
        // else {
             try {
-                if(DataBase.Chat.isChatExists(user.getUsername() + " " + event.data[0])) {
+                if(DataBase.Chat.isChatExists(user.getUsername() + " " + secondusername)) {
                     response = () -> UI.Chat.messages(DataBase.Chat.getMessages
-                            (user.getUsername() + " " + event.data[0]));
+                            (user.getUsername() + " " +secondusername));
                 }
-                else if(DataBase.Chat.isChatExists(event.data[0] + " " + user.getUsername())) {
+                else if(DataBase.Chat.isChatExists(secondusername + " " + user.getUsername())) {
                     response = () -> UI.Chat.messages(DataBase.Chat.getMessages
-                            (event.data[0] + " " + user.getUsername()));
+                            (secondusername + " " + user.getUsername()));
                 }
-                else if(DataBase.Signup.isUsernameExist(event.data[0])) {
-                    DataBase.Chat.newChat(user.getUsername(), event.data[0]);
-                    chat_name = user.getUsername() + " " + event.data[0];
+                else if(DataBase.Signup.isUsernameExist(secondusername)) {
+
+                    DataBase.Chat.newChat(user.getUsername(), secondusername);
+                    chat_name = user.getUsername() + " " +secondusername;
                     response = () -> UI.Chat.messages(DataBase.Chat.
-                            getMessages(user.getUsername() + " " +event.data[0]));
+                            getMessages(user.getUsername() + " " +secondusername));
                 }
                 else {
-                    response = () -> UI.Chat.newChat(true, event.data[0]);
+                    response = () -> UI.Chat.newChat(true,secondusername);
                 }
 
             } catch (SQLException e) {
