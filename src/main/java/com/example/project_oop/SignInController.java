@@ -28,6 +28,8 @@ public class SignInController implements Initializable {
     Label SignInBugLabel;
     @FXML
     AnchorPane abc;
+    @FXML
+    Button SignInForgetPasswordButton;
 
 
 
@@ -57,6 +59,10 @@ public class SignInController implements Initializable {
         Parent pane= FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         HelloApplication.stg.getScene().setRoot(pane);
 
+    }
+    public void pushforgetpassword() throws IOException {
+        Parent pane= FXMLLoader.load(getClass().getResource("ForgetPassword-view.fxml"));
+        HelloApplication.stg.getScene().setRoot(pane);
     }
 
     @Override

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="abc" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.SignInController">
+<AnchorPane fx:id="abc" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #87CEEB;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_oop.SignInController">
    <children>
       <Label layoutX="146.0" layoutY="255.0" text="Please enter tour password:">
          <font>
@@ -36,7 +33,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="SignInForgetPasswordButton" layoutX="715.0" layoutY="413.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="183.0" text="Forget Password">
+      <Button fx:id="SignInForgetPasswordButton" layoutX="715.0" layoutY="413.0" mnemonicParsing="false" onAction="#pushforgetpassword" prefHeight="43.0" prefWidth="183.0" text="Forget Password">
          <font>
             <Font size="20.0" />
          </font>
